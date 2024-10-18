@@ -1,0 +1,10 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY ./service.py /app
+
+RUN pip install flask mlflow boto3 numpy
+RUN pip install cloudpickle==3.0.0 lz4==4.3.2 numpy==1.24.4 psutil==5.9.5 scikit-learn==1.3.1 scipy==1.11.3
+
+CMD ["python", "service.py"]
